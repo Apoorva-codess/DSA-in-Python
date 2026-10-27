@@ -1,0 +1,23 @@
+def roman_to_integer(s):
+    letters={
+        "I":1,
+        "V":5,
+        "X":10,
+        "L":50,
+        "C":100,
+        "M":1000
+
+    }
+    n=len(s)
+    result=0
+    for i in range(n):
+        if i<n-1 and letters[s[i]]<letters[s[i+1]]:
+            result-=letters[s[i]]
+        else:
+            result+=letters[s[i]]
+    return result
+
+s = input("Enter a Roman numeral: ").upper()
+
+result = roman_to_integer(s)
+print("Integer value:", result)
